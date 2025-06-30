@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef _MSC_VER
+	#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <fmt/core.h>
 #include <fmt/chrono.h>
 #include <fmt/color.h>
@@ -55,6 +59,54 @@ namespace Nexus {
 					fmt::print(fmtEmphasis | fg(fmtColor), "[{}] {}\n", timeNow, message);
 					break;
 			}
+
+		}
+
+		void debug(const std::string& message) {
+
+			const std::string timeNow{ getTime() };
+
+			fmt::print(fmt::emphasis::bold | fg(fmt::color::green), "[{}] {}\n", timeNow, message);
+
+		}
+
+		void trace(const std::string& message) {
+
+			const std::string timeNow{ getTime() };
+
+			fmt::print(fmt::emphasis::bold | fg(fmt::color::white), "[{}] {}\n", timeNow, message);
+
+		}
+
+		void info(const std::string& message) {
+
+			const std::string timeNow{ getTime() };
+
+			fmt::print(fmt::emphasis::bold | fg(fmt::color::aqua), "[{}] {}\n", timeNow, message);
+
+		}
+
+		void warn(const std::string& message) {
+
+			const std::string timeNow{ getTime() };
+
+			fmt::print(fmt::emphasis::underline | fg(fmt::color::yellow), "[{}] {}\n", timeNow, message);
+
+		}
+
+		void error(const std::string& message) {
+
+			const std::string timeNow{ getTime() };
+
+			fmt::print(fmt::emphasis::underline | fg(fmt::color::orange), "[{}] {}\n", timeNow, message);
+
+		}
+
+		void critical(const std::string& message) {
+
+			const std::string timeNow{ getTime() };
+
+			fmt::print(fmt::emphasis::reverse | fg(fmt::color::red), "[{}] {}\n", timeNow, message);
 
 		}
 

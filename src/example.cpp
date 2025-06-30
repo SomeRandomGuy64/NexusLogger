@@ -19,4 +19,14 @@ int main() {
 	logger.log("Purple, strikethrough", true, logger.Purple, logger.Strikethrough);
 	logger.log("Pink, underline", true, logger.Pink, logger.Underline);
 
+	// other types
+
+	logger.log("\n");
+	logger.critical("Critical");
+	logger.error("Error");
+	logger.warn("Warn");
+	logger.info("Info");
+	logger.trace("Trace");
+	logger.debug("Debug");
+
 }

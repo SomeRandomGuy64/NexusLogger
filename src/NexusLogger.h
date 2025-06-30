@@ -94,11 +94,12 @@ namespace Nexus {
 
 		}
 
-		void error(const std::string& message) {
+		// temp fix for assertions
+		void error(const std::string& message, const std::string& assertionMessage = "") {
 
 			const std::string timeNow{ getTime() };
 
-			fmt::print(fmt::emphasis::underline | fg(fmt::color::orange), "[{}] {}\n", timeNow, message);
+			fmt::print(fmt::emphasis::underline | fg(fmt::color::orange), "[{}] {}{}\n", timeNow, message, assertionMessage);
 
 		}
 
